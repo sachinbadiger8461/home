@@ -2,216 +2,158 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <title>Sign Up form</title>
+    <title>FILMIX Login</title>
     <style>
-        body {
-            padding: 0;
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            color: white;
-        }
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-        .background {
-            background: url("/api/placeholder/1920")
-            hsl(0, 0%, 0%);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-blend-mode: darken;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: -1;
-            filter: blur(5px);
-            min-height: 800px;
-        }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('banner.jpg');
+    height: 100vh;
+    background-color: #121212;
+    color: #ffffff;
+}
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            width: 500px;
-            margin: 5vh auto;
-            background: transparent;
-            box-shadow: 0 0 15px rgb(255, 255, 255);
-            border-radius: 25px;
-        }
+.login-container {
+    background-color: #1f1f1f;
+    padding: 20px;
+    width: 450px;
+    height: 500px;
+    border-radius: 20px;
+    background: linear-gradient( gray white);
+    background:transparent;
+    backdrop-filter: blur(3px);
+    box-shadow: inset 0px -10px 323px black,
+                inset 11px 18px 256px black;
+}
 
-        h2 {
-            font-size: 30px;
-        }
+h2 {
+    margin-bottom: 30px;
+    color: #ff4a57;
+}
 
-        form {
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            width: 85%;
-        }
+form {
+    display: flex;
+    flex-direction: column;
+}
 
-        .form-item {
-            display: flex;
-            width: 90%;
-            background: transparent;
-            margin: 10px auto;
-            border-radius: 15px;
-            align-items: center;
-            border-bottom: 1px solid rgb(82, 81, 81);
-        }
 
-        .form-item:hover {
-            border: 1px solid rgb(82, 81, 81);
-        }
 
-        input {
-            background: transparent;
-            width: 80%;
-            height: 30px;
-            outline: none;
-            border: none;
-            margin: auto;
-            color: white;
-            font-size: 17px;
-        }
+ .input {
+    height: 55px;
+    padding: 10px;
+    border: 1px solid #c2b5b6;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    position: relative;
+    top: 41px;
+    background-color: #2b2b2b;
+    color: #ffffff;
+}
 
-        span {
-            user-select: none;
-            margin: 5px;
-            color: rgb(172, 172, 172);
-            background: rgba(85, 81, 81, 0.637);
-            padding: 5px;
-            border-radius: 18px;
-        }
 
-        button[type="submit"] {
-            width: 180px;
-            font-size: 20px;
-            margin: 10px auto;
-            padding: 8px;
-            background: rgba(122, 123, 116, 0.72);
-            border: none;
-            color: white;
-            cursor: pointer;
-            border-radius: 15px;
-        }
+.btn {
+    height: 55px;
+    padding: 10px;
+    background-color: #EE0B0F;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1em;
+    position: relative;
+    top: 41px;
+}
+.btn a{
+    text-decoration: none;
+    font-size: 20px;
+    padding: 8px 16px;
+    color: aliceblue;
+}
 
-        button[type="submit"]:hover {
-            background: rgba(222, 236, 34, 0.678);
-        }
+.btn:hover {
+    background-color: #C90404;
+}
 
-        p:first-of-type {
-            margin: 0;
-        }
 
-        .options {
-            display: flex;
-            margin: 10px auto;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+#errorMessage {
+    color: #ff4a57;
+    margin-top: 10px;
+}
+.me{
+    left: 12px;
+    right: 0px;
+    top: 69px;
+    bottom: 0px;
+    position: relative;
+}
+.forgot{
+    left: 12px;
+    top: 91px;
+    position: relative;
+}
+.forgot .f1{
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(20, 149, 255);
+    position: relative;
+    top: -43px;
+    left: 233px;
+}
 
-        button {
-            font-size: 18px;
-            padding: 5px 16px;
-            margin: 5px 15px;
-            width: 180px;
-            background: transparent;
-            color: white;
-            cursor: pointer;
-            transition: all 0.7s ease;
-            border: 1px solid white;
-            border-radius: 15px;
-        }
+.forgot a{
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(20, 149, 255);
+    position: relative;
+    top: 10px;
+    right: 114px;
+}
 
-        .fb:hover {
-            background: rgba(55, 53, 207, 0.637);
-            border: none;
-            box-shadow: 0 0 2px rgba(55, 53, 207, 0.637);
-        }
-
-        .gl:hover {
-            background: rgba(207, 53, 53, 0.671);
-            border: none;
-            box-shadow: 0 0 2px rgba(207, 53, 53, 0.671);
-        }
-
-        p {
-            font-size: 18px;
-            margin: 5px;
-        }
-
-        a {
-            color: white;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: grey;
-        }
-
-        @media screen and (max-width: 550px) {
-            .container {
-                width: 90%;
-            }
-        }
+.forgot label{
+    position: relative;
+    top: -25px;
+    left: 56px;
+}
     </style>
 </head>
 <body>
-    <div class="background"></div>
-    
-    <div class="container">
-        <h2>Sign Up</h2>
-        <form action="">
-            <div class="form-item">
-                <span class="material-icons-outlined">
-                    person
-                </span>
-                <input type="text" name="fullname" id="fullname" placeholder="Full Name" required>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            
+            <input type="email" id="email" name="email" placeholder="Email or mobile number" class="input" required>
+
+            
+            <input type="password" id="password" name="password" placeholder="Password" class="input" required>
+
+            <button class="btn" type="submit"><a href="Menuicon.html">Login</a></button>
+
+            <div class="me">
+                <label for=""><input type="checkbox">Remember me</label>
             </div>
+            
+        <div class="forgot">
+            <a href="#" class="f1">Forgot Password?</a><br><br>
 
-            <div class="form-item">
-                <span class="material-icons-outlined">
-                    email
-                </span>
-                <input type="email" name="email" id="email" placeholder="Email Address" required>
-            </div>
+            <label for="">Do You want to create new account?</label>
 
-            <div class="form-item">
-                <span class="material-icons-outlined">
-                    account_circle
-                </span>
-                <input type="text" name="username" id="username" placeholder="Username" required>
-            </div>
-
-            <div class="form-item">
-                <span class="material-icons-outlined">
-                    lock
-                </span>
-                <input type="password" name="password" id="password" placeholder="Password" required>
-            </div>
-
-            <div class="form-item">
-                <span class="material-icons-outlined">
-                    lock_clock
-                </span>
-                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
-            </div>
-
-            <a href="Menuicon.html"></a><button type="submit">SIGN UP</button>
-
-            <p>Or Sign Up Using</p>
-
-            <div class="options">
-                <button class="fb">Facebook</button>
-                <button class="gl">Google</button>
-            </div>
-
-            <p>Already have an account? <a href="index.html">Login here</a></p>
+            <a href="signup.html">Sign-up</a>
+        </div>
         </form>
+        <p id="errorMessage"></p>
     </div>
+
+   
+
+   
 </body>
 </html>
